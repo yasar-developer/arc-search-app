@@ -1,0 +1,170 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url("../../public/assets/fonts/Satoshi-Variable.ttf");
+  font-style: normal;
+}
+
+.body-margin {
+  margin-left: 5vw;
+  margin-top: 7vh;
+}
+
+.border {
+  border: 1px solid #FFFFFF33;
+}
+
+.body-bg {
+  background: radial-gradient(115% 50% at 60% 0%, #16042F, rgb(0, 0, 0) 89%);
+  width: 100%;
+  height: 100vh;
+}
+
+.box-shadow {
+  box-shadow: 0px 0px 57.69px 57.69px #00000040 inset;
+}
+
+.suggetion-box-bg {
+  background: #292929;
+  width: 14rem;
+  height: 9rem;
+}
+
+.greeting-font-color {
+  background: linear-gradient(180deg, #833991 0%, #CE5ED5 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+/*
+/* Optional: Additional styling for the main content area */
+.main-content {
+  padding: 20px;
+  /* Adjust padding to maintain the gap */
+  height: calc(100vh - 40px);
+  /* Account for padding in height calculation */
+  width: calc(100vw - 40px);
+  overflow: hidden;
+}
+
+*/ .bg-context {
+  background-color: #141414;
+}
+
+.round-gradient {
+  background: radial-gradient(circle at center bottom, #F370F8 0%, #211921 0.1%, #141414);
+}
+
+.inner-border::before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  bottom: 8px;
+  left: 8px;
+  border: 1px solid #474347;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.product-card {
+  width: 250px;
+  height: 320px;
+}
+
+.product-result-container {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 10px;
+  margin-left: 5vw;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+@media (max-width: 767px) {
+  .sidebar {
+    z-index: 500;
+    position: absolute;
+    border-right: none;
+    margin-left: 0;
+  }
+
+  .shop-more-btn {
+    display: none;
+  }
+
+  .product-result-container {
+    flex-direction: column;
+    /* Change to vertical layout */
+    overflow-y: auto;
+    /* Enable vertical scroll */
+    /* height: 100vh; */
+    /* Ensure it takes full height */
+    align-items: center;
+
+    /* Hide the scrollbar */
+    scrollbar-width: none;
+    /* For Firefox */
+    -ms-overflow-style: none;
+    /* For Internet Explorer and Edge */
+    margin-left: 10px;
+  }
+}
+
+.scroll-container {
+  display: flex;
+  overflow-x: auto;
+  padding: 10px 10px 10px 0;
+}
+
+.shop-button-bg {
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5px);
+}
+
+.background-div {
+  background-image: url('../../public/assets/product-1.png');
+  background-size: cover;
+  background-position: center;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #ffffff;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.filter-scrollable-container {
+  overflow-x: auto;
+  white-space: nowrap;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.filter-scrollable-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* @media (max-width: 768px) {
+  .main-content {
+    margin-left: 0;
+  }
+} */
