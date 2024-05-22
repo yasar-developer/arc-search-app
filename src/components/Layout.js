@@ -49,13 +49,14 @@ const Layout = ({ children }) => {
       left: '25px',
       zIndex: 1000,
       color: 'gray',
-      display: windowWidth >= 768  ? 'none' :windowWidth==0 && !isSidebarVisible?'none' : 'block',
+      display: windowWidth < 768  ? 'block' : isSidebarVisible?'none' : 'block',
     },
   };
 
+  console.log(windowWidth)
   return (
     <div style={styles.body} className='body-bg h-fulll'>
-      <button style={styles.menuButton} onClick={toggleSidebar}>
+      <button className={`${windowWidth >= 768 ? 'hidden' : ''}`} style={styles.menuButton} onClick={toggleSidebar}>
         <FiMenu size={24} />
       </button>
       <Sidebar isVisible={isSidebarVisible} />

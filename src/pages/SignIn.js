@@ -2,7 +2,7 @@
 import React, { useContext } from 'react';
 import Layout from '../components/Layout';
 
-const SignIn = () => {
+const Search = () => {
 
   return (
     <Layout>
@@ -18,4 +18,4 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+export default Search;
