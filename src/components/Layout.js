@@ -49,7 +49,7 @@ const Layout = ({ children }) => {
       left: '25px',
       zIndex: 1000,
       color: 'gray',
-      display: windowWidth >= 768  ? 'none' :windowWidth==0 && isSidebarVisible?'none' : 'block',
+      display: windowWidth >= 768  ? 'none' :windowWidth==0 && !isSidebarVisible?'none' : 'block',
     },
   };
 
