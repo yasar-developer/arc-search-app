@@ -8,10 +8,10 @@ const Sidebar = ({ isVisible }) => {
   const router = useRouter();
 
   const navigationItems = [
-    { icon: <FiHome />, index: 0, route: '/' },
-    { icon: <FiSearch />, index: 1, route: '/Search' },
-    { icon: <FiBook />, index: 2, route: '/Library' },
-    { icon: <FiLogOut />, index: 3, route: '/SignIn' },
+    { id: 'home', icon: <FiHome />, index: 0, route: '/' },
+    { id: 'search', icon: <FiSearch />, index: 1, route: '/Search' },
+    { id: 'library', icon: <FiBook />, index: 2, route: '/Library' },
+    { id: 'logout', icon: <FiLogOut />, index: 3, route: '/SignIn' },
   ];
 
   const handleItemClick = (index, route) => {
@@ -54,7 +54,7 @@ const Sidebar = ({ isVisible }) => {
         <img src="/assets/house_of_models.png" alt="House of Design" className="w-8 h-8 mt-7 mb-5" />
         {navigationItems.map((item) => (
           <NavItem
-            key={item.index}
+            key={item.id} // Use a unique identifier as the key
             icon={item.icon}
             active={activeIndex === item.index}
             onItemClick={() => handleItemClick(item.index, item.route)}

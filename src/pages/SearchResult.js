@@ -107,9 +107,8 @@ const SearchResult = () => {
                 </div>
                 <div className='product-result-container'>
                     {products.map((product, index) => (
-                        <div className='font-Satoshi product-card-outerdiv' onClick={() => handleProductCardClick(product.id)}>
+                        <div key={product.id} className='font-Satoshi product-card-outerdiv' onClick={() => handleProductCardClick(product.id)}>
                             <ProductCard
-                                key={index}
                                 id={product.id} // Pass product id as a prop
                                 imageSrc={product.imageSrc}
                                 ecomImageSrc={product.ecomImageSrc}

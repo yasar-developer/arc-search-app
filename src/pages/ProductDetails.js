@@ -76,15 +76,15 @@ const ProductDetails = () => {
                         <p>House of Models</p>
                         <ToggleBar />
                     </div>
-                    <p className='ml-7 my-5'>{activeTab === 'Overview' ? 'Product Description' :
-                        activeTab === 'Specifications' ? 'Specifications' : 'Customer Says'}</p>
+                    {/* <p className='ml-7 my-5'>{activeTab === 'Overview' ? 'Product Description' :
+                        activeTab === 'Specifications' ? 'Specifications' : 'Customer Says'}</p> */}
                     <div className='px-7 flex flex-col flex-grow  mb-3' style={{ height: '200px', overflowY: 'auto' }}>
                         {
                             activeTab === 'Reviews' &&
                             <p className='text-gray-500 text-sm'>
-                                Tees Collection specialize in making men's clothes with characteristics of fashionable, comfortable and elegant.
-                                To show a kind of fashionable and special dressing style, appear the person's vigorous and vitality personality,
-                                and express his active and optimistic attitude of life. Wear our professional design high quality men's shirts,
+                                Tees Collection specialize in making mens clothes with characteristics of fashionable, comfortable and elegant.
+                                To show a kind of fashionable and special dressing style, appear the persons vigorous and vitality personality,
+                                and express his active and optimistic attitude of life. Wear our professional design high quality mens shirts,
                                 you will become more elegant and fascinating. Our designers are attention to every detail of the design and pursue
                                 exquisite sewing process.
                             </p>
