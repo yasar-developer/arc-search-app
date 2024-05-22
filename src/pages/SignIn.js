@@ -11,7 +11,7 @@ const SignIn = () => {
           Sorry!
         </p>
         <p className="text-gray-500 mt-3">
-          We did not implement Layout Page
+          We did not implement Signin Page
         </p>
       </div>
     </Layout>
