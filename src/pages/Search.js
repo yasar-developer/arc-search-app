@@ -1,21 +1,35 @@
 // pages/index.js
-import React, { useContext } from 'react';
-import Layout from '../components/Layout';
+import Head from 'next/head';
+import SwipeImageComponent from '../components/SwipeImageComponent';
 
-const Search = () => {
+export default function Search() {
+  const imagePaths = [
+    '/assets/product1-1.png',
+    '/assets/product1-2.png',
+    '/assets/product1-3.png',
+    // Add more image paths as needed
+  ];
 
   return (
-    <Layout>
-      <div className="body-margin font-Satoshi font-medium text-4xl">
-        <p className="greeting-font-color">
-          Sorry!
-        </p>
-        <p className="text-gray-500 mt-3">
-          We did not implement Search Page
-        </p>
-      </div>
-    </Layout>
-  );
-};
+    <div>
+      <Head>
+        <title>Swipe Image Example</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
 
-export default Search;
+      <main style={styles.main}>
+        <SwipeImageComponent images={imagePaths} />
+      </main>
+    </div>
+  );
+}
+
+const styles = {
+  main: {
+    height: '100vh',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'column'
+  }
+};

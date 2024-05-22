@@ -5,7 +5,7 @@ import BottomBar from './BottomBar';
 
 const Layout = ({ children }) => {
   const [isSidebarVisible, setSidebarVisible] = useState(true);
-  const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 800);
+  const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 0);
 
   const toggleSidebar = () => {
     setSidebarVisible(!isSidebarVisible);
@@ -49,12 +49,12 @@ const Layout = ({ children }) => {
       left: '25px',
       zIndex: 1000,
       color: 'gray',
-      display: windowWidth >= 768 ? 'none' : 'block',
+      display: windowWidth >= 768  ? 'none' :windowWidth==0 && isSidebarVisible?'none' : 'block',
     },
   };
 
   return (
-    <div style={styles.body} className='body-bg h-full'>
+    <div style={styles.body} className='body-bg h-fulll'>
       <button style={styles.menuButton} onClick={toggleSidebar}>
         <FiMenu size={24} />
       </button>
