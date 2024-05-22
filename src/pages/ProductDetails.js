@@ -20,9 +20,9 @@ const ProductDetails = () => {
 
     const { activeTab } = useContext(ActiveIndexContext);
     const images = [
-        '/assets/Product1-1.png',
-        '/assets/Product1-2.png',
-        '/assets/Product1-3.png',
+        '/assets/product1-1.png',
+        '/assets/product1-2.png',
+        '/assets/product1-3.png',
     ];
 
     const [mainImage, setMainImage] = useState(images[0]);
@@ -76,8 +76,8 @@ const ProductDetails = () => {
                         <p>House of Models</p>
                         <ToggleBar />
                     </div>
-                    {/* <p className='ml-7 my-5'>{activeTab === 'Overview' ? 'Product Description' :
-                        activeTab === 'Specifications' ? 'Specifications' : 'Customer Says'}</p> */}
+                    <p className='ml-7 my-5'>{activeTab === 'Overview' ? 'Product Description' :
+                        activeTab === 'Specifications' ? 'Specifications' : 'Customer Says'}</p>
                     <div className='px-7 flex flex-col flex-grow  mb-3' style={{ height: '200px', overflowY: 'auto' }}>
                         {
                             activeTab === 'Reviews' &&

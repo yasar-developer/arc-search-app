@@ -87,9 +87,9 @@
 }
 
 @media (max-width: 767px) {
-  .body-bg {
+  /* .body-bg {
     height: calc(100vh - 40px);
-  }
+  } */
 
   .sidebar {
     z-index: 500;
