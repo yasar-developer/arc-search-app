@@ -5,7 +5,7 @@ import BottomBar from './BottomBar';
 
 const Layout = ({ children }) => {
   const [isSidebarVisible, setSidebarVisible] = useState(true);
-  const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 0);
+  const [isMobileSize, SetIsMobileSize] = useState(false);
 
   const toggleSidebar = () => {
     setSidebarVisible(!isSidebarVisible);
@@ -13,13 +13,15 @@ const Layout = ({ children }) => {
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
-
+    // setWindowWidth(window.innerWidth);
     const handleResize = () => {
-      setWindowWidth(window.innerWidth);
+      // setWindowWidth(window.innerWidth);
       if (window.innerWidth < 768) {
         setSidebarVisible(false);
+        SetIsMobileSize(true)
       } else {
         setSidebarVisible(true);
+        SetIsMobileSize(false)
       }
     };
 
@@ -49,14 +51,14 @@ const Layout = ({ children }) => {
       left: '25px',
       zIndex: 1000,
       color: 'gray',
-      display: windowWidth < 768  ? 'block' : isSidebarVisible?'none' : 'block',
+      display: isMobileSize ? 'block' : 'none',
     },
   };
 
-  console.log(windowWidth)
+  // console.log(windowWidth)
   return (
-    <div style={styles.body} className='body-bg h-fulll'>
-      <button className={`${windowWidth >= 768 ? 'hidden' : ''}`} style={styles.menuButton} onClick={toggleSidebar}>
+    <div style={styles.body} className='body-bg h-full'>
+      <button style={styles.menuButton} onClick={toggleSidebar}>
         <FiMenu size={24} />
       </button>
       <Sidebar isVisible={isSidebarVisible} />
