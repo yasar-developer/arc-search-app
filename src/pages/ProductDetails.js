@@ -96,7 +96,8 @@ const ProductDetails = () => {
                             <main style={styles.main}>
                                 <SwipeImageComponent images={images} />
                             </main>
-                            <ToggleBar />
+                            <div className='mt-5'><ToggleBar /></div>
+                            
                         </div>
                         <p class="my-2">
                             {activeTab === 'Overview' ? 'Product Description' :
@@ -147,7 +148,7 @@ const ProductDetails = () => {
                             <p>House of Models</p>
                             <ToggleBar />
                         </div>
-                        <p className='m-y-2'>{activeTab === 'Overview' ? 'Product Description' :
+                        <p className='ml-7 my-5'>{activeTab === 'Overview' ? 'Product Description' :
                             activeTab === 'Specifications' ? 'Specifications' : 'Customer Says'}</p>
                         <div className='px-7 flex flex-col flex-grow  mb-3' style={{ height: '200px', overflowY: 'auto' }}>
                             {
