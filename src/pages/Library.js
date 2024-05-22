@@ -5,11 +5,16 @@ import Layout from '../components/Layout';
 const Library = () => {
 
   return (
-    <div>
-      <Layout>
-        <h1>Welcome to the Library Page</h1>
-      </Layout>
-    </div>
+    <Layout>
+      <div className="body-margin font-Satoshi font-medium text-4xl">
+        <p className="greeting-font-color">
+          Sorry!
+        </p>
+        <p className="text-gray-500 mt-3">
+          We did not implement Library Page
+        </p>
+      </div>
+    </Layout>
   );
 };
 

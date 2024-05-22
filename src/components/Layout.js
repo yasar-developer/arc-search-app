@@ -54,7 +54,7 @@ const Layout = ({ children }) => {
   };
 
   return (
-    <div style={styles.body} className='body-bg relative h-full max-w-full overflow-hidden'>
+    <div style={styles.body} className='body-bg h-full'>
       <button style={styles.menuButton} onClick={toggleSidebar}>
         <FiMenu size={24} />
       </button>

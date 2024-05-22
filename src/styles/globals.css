@@ -24,7 +24,7 @@
 }
 
 .box-shadow {
-  box-shadow: 0px 0px 57.69px 57.69px #00000040 inset;
+  box-shadow: 100px 100px 100px 100px #00000040 inset;
 }
 
 .suggetion-box-bg {
@@ -100,6 +100,7 @@
 
   .shop-more-btn {
     display: none;
+    visibility: hidden;
   }
 
   .product-card {

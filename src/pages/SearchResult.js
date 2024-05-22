@@ -1,12 +1,12 @@
-// pages/index.js
 import React, { useState } from 'react';
 import ProductCard from '../components/ProductCard';
 import Layout from '../components/Layout';
+import { useRouter } from 'next/router';
 
 const styles = {
     filterBg: {
         background: '#2C2C2C',
-        color:'gray',
+        color: 'gray',
         borderRadius: '25px',
         gap: '10px',
         padding: '5px 20px',
@@ -30,14 +30,15 @@ const styles = {
         fontSize: '12px',
         margin: 'auto'
     },
-    filterMargin:{
-        marginTop:'3vh',
-        marginLeft:'5vw'
+    filterMargin: {
+        marginTop: '3vh',
+        marginLeft: '5vw'
     }
 };
 
 const products = [
     {
+        id: 1,
         imageSrc: "/assets/product-1.png",
         ecomImageSrc: "/assets/flipkart.png",
         rating: "4.4",
@@ -47,6 +48,7 @@ const products = [
         price: "349",
     },
     {
+        id: 2,
         imageSrc: "/assets/product-2.png",
         ecomImageSrc: "/assets/amazon.png",
         rating: "4.4",
@@ -56,6 +58,7 @@ const products = [
         price: "419",
     },
     {
+        id: 3,
         imageSrc: "/assets/product-3.png",
         ecomImageSrc: "/assets/myntra.png",
         rating: "4.4",
@@ -67,7 +70,16 @@ const products = [
 ];
 
 const SearchResult = () => {
+    const router = useRouter();
     const [activeFilter, setActiveFilter] = useState('Recommended');
+
+    const handleProductCardClick = (productId) => {
+        console.log("Product card clicked:", productId);
+        if (productId == 2) {
+            router.push('/ProductDetails');
+        }
+        // Do whatever you need with the clicked product card
+    };
 
     return (
         <div>
@@ -95,16 +107,19 @@ const SearchResult = () => {
                 </div>
                 <div className='product-result-container'>
                     {products.map((product, index) => (
-                        <ProductCard
-                            key={index}
-                            imageSrc={product.imageSrc}
-                            ecomImageSrc={product.ecomImageSrc}
-                            rating={product.rating}
-                            ratingCount={product.ratingCount}
-                            title={product.title}
-                            description={product.description}
-                            price={product.price}
-                        />
+                        <div className='font-Satoshi product-card-outerdiv' onClick={() => handleProductCardClick(product.id)}>
+                            <ProductCard
+                                key={index}
+                                id={product.id} // Pass product id as a prop
+                                imageSrc={product.imageSrc}
+                                ecomImageSrc={product.ecomImageSrc}
+                                rating={product.rating}
+                                ratingCount={product.ratingCount}
+                                title={product.title}
+                                description={product.description}
+                                price={product.price}
+                            />
+                        </div>
                     ))}
                 </div>
                 <button className="shop-more-btn" style={styles.shopMore}>
