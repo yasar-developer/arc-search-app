@@ -1,7 +1,6 @@
-// pages/index.js
 import React from 'react';
-import Greeting from '../components/Greeting'
-import SuggestionBox from '../components/SearchSuggestion'
+import Greeting from '../components/Greeting';
+import SuggestionBox from '../components/SearchSuggestion';
 
 const SearchSuggestions = [
     {
@@ -21,7 +20,7 @@ const SearchSuggestions = [
     },
 ];
 
-const Home = () => {
+const Home: React.FC = () => {
     return (
         <div className='body-margin'>
             <Greeting name="Yasar"/>

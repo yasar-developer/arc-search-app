@@ -1,10 +1,28 @@
-// components/ProductCard.js
-
+import React from 'react';
 import Image from 'next/image';
 import { FaStar } from 'react-icons/fa';
 
-const ProductCard = ({ imageSrc, ecomImageSrc, rating, ratingCount, title, description, price }) => {
-  const divStyle = {
+interface ProductCardProps {
+  id:number;
+  imageSrc: string;
+  ecomImageSrc: string;
+  rating: string;
+  ratingCount: string;
+  title: string;
+  description: string;
+  price: string;
+}
+
+const ProductCard: React.FC<ProductCardProps> = ({
+  imageSrc,
+  ecomImageSrc,
+  rating,
+  ratingCount,
+  title,
+  description,
+  price
+}) => {
+  const divStyle: React.CSSProperties = {
     backgroundImage: `linear-gradient(to top, rgba(0, 0, 0, 1) 5%, rgba(0, 0, 0, 0) 100%), url(${imageSrc})`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',

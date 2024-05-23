@@ -2,9 +2,10 @@ import React from 'react';
 import { CiCirclePlus } from 'react-icons/ci';
 import { useRouter } from 'next/router';
 
-const BottomBar = () => {
+const BottomBar: React.FC = () => {
   const router = useRouter();
-  const styles = {
+
+  const styles: { [key: string]: React.CSSProperties } = {
     container: {
       position: 'absolute',
       bottom: 30,
@@ -39,7 +40,7 @@ const BottomBar = () => {
     },
   };
 
-  const handleShopClick = () => {
+  const handleShopClick = (): void => {
     router.push('/Searching');
   };
 

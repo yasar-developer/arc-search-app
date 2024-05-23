@@ -1,9 +1,14 @@
-import { useState } from 'react';
-import { useContext } from 'react';
+import React, { useContext } from 'react';
 import { ActiveIndexContext } from '../context/ActiveIndexContext';
 
-const ToggleBar = () => {
-  const {activeTab, setActiveTab} = useContext(ActiveIndexContext);
+const ToggleBar: React.FC = () => {
+  const context = useContext(ActiveIndexContext);
+
+  if (!context) {
+    throw new Error('ToggleBar must be used within an ActiveIndexProvider');
+  }
+
+  const { activeTab, setActiveTab } = context;
 
   return (
     <div className="db font-Satoshi flex space-x- bg-gray-900 text-base rounded-md w-fit">
@@ -19,7 +24,7 @@ const ToggleBar = () => {
       <style jsx>{`
         line:not(:last-child)::after {
           content: '|';
-          color:grey
+          color: grey;
         }
       `}</style>
       <button
@@ -39,7 +44,6 @@ const ToggleBar = () => {
       >
         Reviews
       </button>
-      
     </div>
   );
 };

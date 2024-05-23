@@ -1,4 +1,3 @@
-// pages/index.js
 import React, { useContext } from 'react';
 import Layout from '../components/Layout';
 import Home from './Home';
@@ -7,7 +6,7 @@ import Library from './Library';
 import SignIn from './SignIn';
 import { ActiveIndexContext } from '../context/ActiveIndexContext';
 
-const Index = () => {
+const Index: React.FC = () => {
   const { activeIndex } = useContext(ActiveIndexContext);
 
   const renderContent = () => {

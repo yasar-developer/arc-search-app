@@ -3,18 +3,36 @@ import { FiHome, FiSearch, FiBook, FiLogOut } from 'react-icons/fi';
 import { useRouter } from 'next/router';
 import { ActiveIndexContext } from '../context/ActiveIndexContext';
 
-const Sidebar = ({ isVisible }) => {
+interface NavigationItem {
+  id: string;
+  icon: JSX.Element;
+  index: number;
+  route: string;
+}
+
+interface NavItemProps {
+  icon: JSX.Element;
+  active: boolean;
+  onItemClick: () => void;
+  styles: {
+    navItem: React.CSSProperties;
+    activeNavItem: React.CSSProperties;
+    inactiveNavItem: React.CSSProperties;
+  };
+}
+
+const Sidebar: React.FC<{ isVisible: boolean }> = ({ isVisible }) => {
   const { activeIndex, setActiveIndex } = useContext(ActiveIndexContext);
   const router = useRouter();
 
-  const navigationItems = [
+  const navigationItems: NavigationItem[] = [
     { id: 'home', icon: <FiHome />, index: 0, route: '/' },
     { id: 'search', icon: <FiSearch />, index: 1, route: '/Search' },
     { id: 'library', icon: <FiBook />, index: 2, route: '/Library' },
     { id: 'logout', icon: <FiLogOut />, index: 3, route: '/SignIn' },
   ];
 
-  const handleItemClick = (index, route) => {
+  const handleItemClick = (index: number, route: string) => {
     setActiveIndex(index);
     router.push(route);
   };
@@ -66,7 +84,7 @@ const Sidebar = ({ isVisible }) => {
   );
 };
 
-const NavItem = ({ icon, active, onItemClick, styles }) => (
+const NavItem: React.FC<NavItemProps> = ({ icon, active, onItemClick, styles }) => (
   <button
     className="nav-item"
     style={{ ...styles.navItem, ...(active ? styles.activeNavItem : styles.inactiveNavItem) }}

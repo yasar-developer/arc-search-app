@@ -1,9 +1,7 @@
-// pages/index.js
-import React, { useContext } from 'react';
+import React from 'react';
 import Layout from '../components/Layout';
 
-const SignIn = () => {
-
+const Library: React.FC = () => {
   return (
     <Layout>
       <div className="body-margin font-Satoshi font-medium text-4xl">
@@ -11,11 +9,11 @@ const SignIn = () => {
           Sorry!
         </p>
         <p className="text-gray-500 mt-3">
-          We did not implement Search Page
+          We did not implement Library Page
         </p>
       </div>
     </Layout>
   );
 };
 
-export default SignIn;
+export default Library;

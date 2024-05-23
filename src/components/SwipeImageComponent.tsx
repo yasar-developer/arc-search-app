@@ -1,15 +1,17 @@
-// components/SwipeImageComponent.js
 import React, { useState } from 'react';
-import { BiBorderRadius } from 'react-icons/bi';
-import { useSwipeable } from 'react-swipeable';
+import { useSwipeable, SwipeableHandlers } from 'react-swipeable';
 
-const SwipeImageComponent = ({ images }) => {
+interface SwipeImageComponentProps {
+  images: string[];
+}
+
+const SwipeImageComponent: React.FC<SwipeImageComponentProps> = ({ images }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const handlers = useSwipeable({
+  const handlers: SwipeableHandlers = useSwipeable({
     onSwipedLeft: () => handleNextImage(),
     onSwipedRight: () => handlePreviousImage(),
-    preventDefaultTouchmoveEvent: true,
+    preventScrollOnSwipe: true,
     trackMouse: true
   });
 
@@ -22,13 +24,13 @@ const SwipeImageComponent = ({ images }) => {
   };
 
   return (
-    <div style={styles.container}>
-      <div {...handlers} style={styles.imageContainer}>
-      <div className="absolute top-2 left-2">
-        <img className="rounded-2xl" src='./assets/flipkart.png' alt="Product Image" width={30} height={30} />
-      </div>
-        <img src={images[currentIndex]} alt="Swipeable" style={styles.image} />
-        <div style={styles.indicatorContainer}>
+    <div style={styles.container as React.CSSProperties}>
+      <div {...handlers} style={styles.imageContainer as React.CSSProperties}>
+        <div className="absolute top-2 left-2">
+          <img className="rounded-2xl" src="./assets/flipkart.png" alt="Product Image" width={30} height={30} />
+        </div>
+        <img src={images[currentIndex]} alt="Swipeable" style={styles.image as React.CSSProperties} />
+        <div style={styles.indicatorContainer as React.CSSProperties}>
           {images.map((_, index) => (
             <div
               key={index}
@@ -51,17 +53,17 @@ const styles = {
     alignItems: 'center'
   },
   imageContainer: {
-      background: `linear-gradient(to bottom, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 1) 100%)`,
-      borderRadius:'20px',
-      position: 'relative',
-      width: '300px',
-      height: '200px',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      overflow: 'hidden',
-      userSelect: 'none',
-      marginBottom: '10px'
+    background: `linear-gradient(to bottom, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 1) 100%)`,
+    borderRadius: '20px',
+    position: 'relative',
+    width: '300px',
+    height: '200px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    overflow: 'hidden',
+    userSelect: 'none',
+    marginBottom: '10px'
   },
   image: {
     width: '100%',
@@ -74,7 +76,7 @@ const styles = {
     width: '100%',
     display: 'flex',
     justifyContent: 'center',
-    borderRedius:'5px'
+    borderRadius: '5px'
   },
   indicator: {
     width: '20px',

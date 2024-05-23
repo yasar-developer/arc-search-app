@@ -1,4 +1,3 @@
-// contexts/ActiveIndexContext.js
 import React, { createContext, useState } from 'react';
 
 export const ActiveIndexContext = createContext();

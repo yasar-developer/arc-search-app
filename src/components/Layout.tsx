@@ -1,11 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, ReactNode } from 'react';
 import { FiMenu } from 'react-icons/fi';
 import Sidebar from './Sidebar';
 import BottomBar from './BottomBar';
 
-const Layout = ({ children }) => {
+interface LayoutProps {
+  children: ReactNode;
+}
+
+const Layout: React.FC<LayoutProps> = ({ children }) => {
   const [isSidebarVisible, setSidebarVisible] = useState(true);
-  const [isMobileSize, SetIsMobileSize] = useState(false);
+  const [isMobileSize, setIsMobileSize] = useState(false);
 
   const toggleSidebar = () => {
     setSidebarVisible(!isSidebarVisible);
@@ -13,15 +17,13 @@ const Layout = ({ children }) => {
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
-    // setWindowWidth(window.innerWidth);
     const handleResize = () => {
-      // setWindowWidth(window.innerWidth);
       if (window.innerWidth < 768) {
         setSidebarVisible(false);
-        SetIsMobileSize(true)
+        setIsMobileSize(true);
       } else {
         setSidebarVisible(true);
-        SetIsMobileSize(false)
+        setIsMobileSize(false);
       }
     };
 
@@ -31,7 +33,7 @@ const Layout = ({ children }) => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const styles = {
+  const styles: { [key: string]: React.CSSProperties } = {
     body: {
       padding: '0.8%',
       overflow: 'hidden',
@@ -55,14 +57,13 @@ const Layout = ({ children }) => {
     },
   };
 
-  // console.log(windowWidth)
   return (
-    <div style={styles.body} className='body-bg h-full'>
+    <div style={styles.body} className="body-bg h-full">
       <button style={styles.menuButton} onClick={toggleSidebar}>
         <FiMenu size={24} />
       </button>
       <Sidebar isVisible={isSidebarVisible} />
-      <div className={`rounded round-gradient text-white border border-solid border-white border-opacity-25`} style={styles.main}>
+      <div className="rounded round-gradient text-white border border-solid border-white border-opacity-25" style={styles.main}>
         {children}
         <BottomBar />
       </div>

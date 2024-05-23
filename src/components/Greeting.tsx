@@ -1,7 +1,10 @@
-// Greeting.js
 import React from 'react';
 
-const Greeting = ({ name }) => {
+interface GreetingProps {
+    name: string;
+}
+
+const Greeting: React.FC<GreetingProps> = ({ name }) => {
     return (
         <div className="font-Satoshi font-medium text-4xl">
             <p className="greeting-font-color">
